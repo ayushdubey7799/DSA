@@ -1,0 +1,41 @@
+
+
+class Solution {
+    public List<List<Integer>> generate(int n) {
+        if (n == 1) {
+            List<List<Integer>> result = new ArrayList<>();
+            result.add(List.of(1));
+            return result;
+        }
+        if (n == 2) {
+            List<List<Integer>> result = new ArrayList<>();
+            result.add(List.of(1));
+            result.add(List.of(1, 1));
+            return result;
+        }
+
+        List<Integer> prevArr = new ArrayList<>();
+        prevArr.add(1);
+        prevArr.add(1);
+
+        List<List<Integer> res = new ArrayList<>();
+        res.add(List.of(1));
+        res.add(List.of(1, 1));
+
+        for (int i = 3; i <= n; i++) {
+            List<Integer> currArr = new ArrayList<>();
+            for (int j = 0; j < i; j++) {
+                if (j == 0 || j == i - 1) {
+                    currArr.add(1);
+                } else {
+                    currArr.add(prevArr.get(j) + prevArr.get(j - 1));
+                }
+            }
+            prevArr = currArr;
+            res.add(currArr);
+        }
+
+        return res;
+    }
+}
+

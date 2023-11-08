@@ -1,0 +1,50 @@
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode curr1 = l1;
+        ListNode curr2 = l2;
+
+        ListNode res = new ListNode(-1);
+        ListNode dummy = res;
+        int carry = 0;
+        int sum = 0;
+        while(curr1!=null && curr2!=null){
+           sum = curr1.val + curr2.val+carry;
+           carry = sum/10;
+           sum=sum%10;
+           dummy.next = new ListNode(sum);
+           dummy = dummy.next;
+           curr1 = curr1.next;
+           curr2 = curr2.next;
+        }
+       while(curr1!=nu
+           sum = curr1.val+carry;
+           carry = sum/10;
+           sum=sum%10;
+           dummy.next = new ListNode(sum);
+           dummy = dummy.next;
+           curr1 = curr1.next;
+       }
+
+        while(curr2!=null){
+           sum = curr2.val+carry;
+           carry = sum/10;
+           sum=sum%10;
+           dummy.next = new ListNode(sum);
+                      dummy = dummy.next;
+
+           curr2 = curr2.next;
+       }
+       if(carry>0){
+           dummy.next = new ListNode(carry);
+       }
+
+       res = res.next;
+       return res;
+    }
+}
+
+
+
+
+
+

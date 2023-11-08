@@ -1,0 +1,49 @@
+
+
+class Solution {
+    public void nextPermutation(int[] arr) {
+        int index1 = -1;
+        int index2 = -1;
+        int n = arr.length-1;
+        for(int i = n-1;i>=0;i--){
+           if(arr[i]<arr[i+1]){
+               index1 = i;
+               break;
+           }
+        }
+
+        if(index1 == -1){
+            reverse(arr,0,n);
+            return;
+        }
+
+        for(int i = n;i>=index1;i--){
+           if(arr[index1]<arr[i]){
+               index2 = i;
+               break;
+           }
+        }
+        swap(arr,index1,index2);
+
+        reverse(arr,index1+1,n);
+       
+    }
+
+    void reverse(int[] arr, int i,int j){
+     if(i==arr.length-1)return;
+        while(i<j){
+            swap(arr,i++,j--);
+        }
+    }
+
+
+    void swap(int[] arr,int i,int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+
+
+
