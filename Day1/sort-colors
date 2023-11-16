@@ -3,7 +3,6 @@ class Solution {
         int i = 0;
         int j = 0;
         int k = arr.length-1;
-        int n = arr.length;
 
         while(j<=k){
             if(arr[j]==0){
@@ -28,4 +27,14 @@ class Solution {
     }
 }
 
+
+/*
+3 pointers
+j will traverse
+
+if arr[j] == 0 (swap(i++,j++)) / == 2 (swap(j,k--)) / == 1 (j++)
+
+======> j will move only when  j == 1 or 0 (after swap)
+
+*/
  

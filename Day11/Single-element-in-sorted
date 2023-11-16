@@ -6,8 +6,7 @@ class Solution {
        if(r==0)return arr[r];
         while(l<=r){
             int mid = (l+r)/2;
-            if(mid+1>=n)return arr[r];
-            if(mid-1<0)return arr[l];
+            if(mid+1>=n || mid-1<0)return arr[mid];
             if(arr[mid]!=arr[mid+1] && arr[mid]!=arr[mid-1]){
                 return arr[mid];
             }
@@ -34,4 +33,11 @@ class Solution {
     }
 }
 
+/*
+No of elements on the side of same element (even or odd)
+  --> arr[mid] == arr[mid+1] --> even (l=mid+1) / odd (r = mid-1)
+  --> vice versa
+  
+ =============> edge cases (mid+1 / mid-1 --> not found) --> return mid
 
+*/
