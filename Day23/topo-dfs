@@ -1,0 +1,22 @@
+class Solution 
+{
+    dfs(V,adj,res,vis,start){
+        const list = adj[start];
+        for(let i = 0;i<list.length;i++){
+            if(!vis[list[i]])this.dfs(V,adj,res,vis,list[i]);
+        }
+        res.push(start);
+        vis[start] = true;
+    }
+
+    topoSort(V, adj)
+    {
+       const vis = new Array(V); 
+       vis.fill(false);        
+       const res = [];
+       for(let i = 0;i<V;i++){
+           if(!vis[i])this.dfs(V,adj,res,vis,i);
+       }
+       return res.reverse();
+    }
+}
